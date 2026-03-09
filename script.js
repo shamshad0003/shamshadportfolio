@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const form = e.target;
             const data = new FormData(form);
+            const value = Object.fromEntries(data.entries());
             const button = form.querySelector('button');
             const originalText = button.textContent;
 
@@ -30,20 +31,22 @@ document.addEventListener('DOMContentLoaded', () => {
             try {
                 const response = await fetch(form.action, {
                     method: form.method,
-                    body: data,
+                    body: JSON.stringify(value),
                     headers: {
+                        'Content-Type': 'application/json',
                         'Accept': 'application/json'
                     }
                 });
 
                 if (response.ok) {
-                    alert('Thank you for your message! Please check your email to confirm the Formspree connection if this is your first time.');
+                    alert('Success! Your message has been sent. Please check your email inbox (and spam) for a verification link from Formspree to activate the form.');
                     form.reset();
                 } else {
-                    alert('Oops! There was a problem submitting your form.');
+                    const errorData = await response.json();
+                    alert('Submission failed (Error ' + response.status + '): ' + (errorData.error || 'Please check if you have verified your email with Formspree.'));
                 }
             } catch (error) {
-                alert('Oops! There was a problem connecting to the server.');
+                alert('Connection error: Please check your internet or disable any ad-blockers that might be stopping the request.');
             } finally {
                 button.textContent = originalText;
                 button.disabled = false;
