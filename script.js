@@ -14,13 +14,40 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 2. Form Submission Handling (Mock)
+    // 2. Form Submission Handling (Formspree)
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            alert('Thank you for your message, Shamshad will get back to you soon!');
-            contactForm.reset();
+            const form = e.target;
+            const data = new FormData(form);
+            const button = form.querySelector('button');
+            const originalText = button.textContent;
+
+            button.textContent = 'Sending...';
+            button.disabled = true;
+
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    alert('Thank you for your message! Please check your email to confirm the Formspree connection if this is your first time.');
+                    form.reset();
+                } else {
+                    alert('Oops! There was a problem submitting your form.');
+                }
+            } catch (error) {
+                alert('Oops! There was a problem connecting to the server.');
+            } finally {
+                button.textContent = originalText;
+                button.disabled = false;
+            }
         });
     }
 
