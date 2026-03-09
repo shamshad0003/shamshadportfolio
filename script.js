@@ -1,6 +1,6 @@
 /**
- * Portfolio - Shamshad
  * JavaScript for Interactive Components
+ * Last Updated: 2026-03-09
  */
 
 document.addEventListener('DOMContentLoaded', () => {
