@@ -1,6 +1,6 @@
 # Professional Portfolio - Shamshad
 
-A modern, responsive personal portfolio website for Shamshad, a Computer Science graduate specializing in Software Engineering and QA Professional roles.
+A modern, responsive personal portfolio website for Shamshad, a Software Engineer and Mobile & Web Developer.
 
 ## 🚀 Live Demo
 You can view the live website here: [https://shamshad0003.github.io/shamshadportfolio/](https://shamshad0003.github.io/shamshadportfolio/)
@@ -19,7 +19,7 @@ You can view the live website here: [https://shamshad0003.github.io/shamshadport
 - `assets/`: Images, screenshots, and professional documents.
 
 ## 👤 About Shamshad
-Computer Science graduate with a specialization in **IBM Cloud Computing** and a Diploma in **Mobile & Web Development**. 3+ years of experience in Software Engineering support and Quality Assurance.
+Passionate **Software Engineer** and **Mobile & Web Developer** with a strong background in Computer Science and IBM Cloud Computing. Currently pursuing advanced studies in Mobile and Web Development.
 
 ## 📧 Contact
 Feel free to reach out via the contact form on the website or through [LinkedIn](https://www.linkedin.com/in/shamshad-shamshad-037811169).
